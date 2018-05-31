@@ -21,9 +21,10 @@ void readln(char s[], int maxlen) {
 	while (chars_remaining) {
 		ch = getchar();
 		// the main take away here is that the loop only stops when
-		// we've completely flushed the input. Adding a
+		// we've completely flushed the input.
 		if (ch == '\n' || ch == EOF) {
 			chars_remaining = 0;
+		// why maxlen - 1? works. Well cuz we need one space for \0
 		} else if (i < maxlen - 1) {
 			s[i] = ch;
 			i++;
