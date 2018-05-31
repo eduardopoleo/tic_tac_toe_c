@@ -13,14 +13,37 @@
 
 int board_state[9];
 
+void readln(char s[], int maxlen) {
+	char ch;
+	int i = 0;
+	int chars_remaining = 1;
+
+	while (chars_remaining) {
+		ch = getchar();
+		// the main take away here is that the loop only stops when
+		// we've completely flushed the input. Adding a
+		if (ch == '\n' || ch == EOF) {
+			chars_remaining = 0;
+		} else if (i < maxlen - 1) {
+			s[i] = ch;
+			i++;
+		}
+	}
+
+	s[i] = '\0';
+}
+
+#define MOVE_LENGTH 3
+
 int getmove() {
-	char move_input[5];
+	// Even if it's only 1 character we need: input, \n, \0 => 3
+	char move_input[MOVE_LENGTH];
 	int move;
 	printf("Enter your move (1-9): ");
 //	TODO makes this secure
 // 	Make sure it's an integer between 1 - 9
 //  longer/shorter strings won't break the program
-	fgets(move_input, 5, stdin);
+	readln(move_input, MOVE_LENGTH);
 
 	move = atoi(move_input);
 	return move;
