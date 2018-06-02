@@ -106,6 +106,54 @@ void initialize_board() {
 
 }
 
+int game_won() {
+	int at_zero = board_state[0];
+	int at_one = board_state[1];
+	int at_two = board_state[2];
+	int at_three = board_state[3];
+	int at_four = board_state[4];
+	int at_five = board_state[5];
+	int at_six = board_state[6];
+	int at_seven = board_state[7];
+	int at_eight = board_state[8];
+
+	if(at_zero == at_one && at_zero == at_two) {
+		if (at_zero != 0) {
+			return 1;
+		}
+	} else if(at_zero == at_three && at_zero == at_six) {
+		if (at_zero != 0) {
+			return 1;
+		}
+	} else if(at_zero == at_four && at_zero == at_eight) {
+		if (at_zero != 0) {
+			return 1;
+		}
+	} else if(at_one == at_four && at_one == at_seven) {
+		if (at_one != 0) {
+			return 1;
+		}
+	} else if(at_two == at_five && at_two == at_eight) {
+		if (at_two != 0) {
+			return 1;
+		}
+	} else if(at_two == at_four && at_two == at_six) {
+		if (at_two != 0) {
+			return 1;
+		}
+	} else if(at_three == at_four && at_three == at_five) {
+		if (at_three != 0) {
+			return 1;
+		}
+	} else if(at_six == at_seven && at_six == at_eight) {
+		if (at_six != 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
 int main(int argc, char **argv) {
 	int move;
 	// X = 1, O = 0
@@ -123,6 +171,10 @@ int main(int argc, char **argv) {
 
 		if (move != 0) {
 			update_board_state(symbol, move);
+
+			if (game_won() == 1) {
+				break;
+			}
 
 			if (symbol == 1) {
 				symbol = -1;
