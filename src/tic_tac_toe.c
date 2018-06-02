@@ -107,46 +107,46 @@ void initialize_board() {
 }
 
 int game_won() {
-	int at_zero = board_state[0];
-	int at_one = board_state[1];
-	int at_two = board_state[2];
-	int at_three = board_state[3];
-	int at_four = board_state[4];
-	int at_five = board_state[5];
-	int at_six = board_state[6];
-	int at_seven = board_state[7];
-	int at_eight = board_state[8];
+	int at_0 = board_state[0];
+	int at_1 = board_state[1];
+	int at_2 = board_state[2];
+	int at_3 = board_state[3];
+	int at_4 = board_state[4];
+	int at_5 = board_state[5];
+	int at_6 = board_state[6];
+	int at_7 = board_state[7];
+	int at_8 = board_state[8];
 
-	if(at_zero == at_one && at_zero == at_two) {
-		if (at_zero != 0) {
+	if(at_0 == at_1 && at_0 == at_2) {
+		if (at_0 != 0) {
 			return 1;
 		}
-	} else if(at_zero == at_three && at_zero == at_six) {
-		if (at_zero != 0) {
+	} else if(at_0 == at_3 && at_0 == at_6) {
+		if (at_0 != 0) {
 			return 1;
 		}
-	} else if(at_zero == at_four && at_zero == at_eight) {
-		if (at_zero != 0) {
+	} else if(at_0 == at_4 && at_0 == at_8) {
+		if (at_0 != 0) {
 			return 1;
 		}
-	} else if(at_one == at_four && at_one == at_seven) {
-		if (at_one != 0) {
+	} else if(at_1 == at_4 && at_1 == at_7) {
+		if (at_1 != 0) {
 			return 1;
 		}
-	} else if(at_two == at_five && at_two == at_eight) {
-		if (at_two != 0) {
+	} else if(at_2 == at_5 && at_2 == at_8) {
+		if (at_2 != 0) {
 			return 1;
 		}
-	} else if(at_two == at_four && at_two == at_six) {
-		if (at_two != 0) {
+	} else if(at_2 == at_4 && at_2 == at_6) {
+		if (at_2 != 0) {
 			return 1;
 		}
-	} else if(at_three == at_four && at_three == at_five) {
-		if (at_three != 0) {
+	} else if(at_3 == at_4 && at_3 == at_5) {
+		if (at_3 != 0) {
 			return 1;
 		}
-	} else if(at_six == at_seven && at_six == at_eight) {
-		if (at_six != 0) {
+	} else if(at_6 == at_7 && at_6 == at_8) {
+		if (at_6 != 0) {
 			return 1;
 		}
 	}
