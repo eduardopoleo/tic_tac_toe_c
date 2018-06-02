@@ -47,7 +47,20 @@ int getmove() {
 	readln(move_input, MOVE_LENGTH);
 
 	move = atoi(move_input);
-	return move;
+	int validated_move = validate_move(move);
+	return validated_move;
+}
+
+int validate_move(int move) {
+	int valid_moves[] = {1,2,3,4,5,6,7,8,9};
+
+	for(int i = 0; i < 9; i++) {
+		if (valid_moves[i] == move && board_state[move - 1] == 0) {
+			return move;
+		}
+	}
+
+	return 0;
 }
 
 void update_board_state(int symbol, int move) {
@@ -103,17 +116,28 @@ int main(int argc, char **argv) {
 
 	// TODO this is too naive and assumes that the input is always correct
 	// make the get move to somehow return if the input is correct or not. e.g -1
-	for (int i = 0; i < board_size; i++) {
+	int count = 0;
+	while (count < board_size) {
 		print_board();
 		move = getmove();
-		update_board_state(symbol, move);
 
-		if (symbol == 1) {
-			symbol = -1;
+		if (move != 0) {
+			update_board_state(symbol, move);
+
+			if (symbol == 1) {
+				symbol = -1;
+			} else {
+				symbol = 1;
+			}
+
+			count++;
 		} else {
-			symbol = 1;
+			printf("Please enter a valid move\n");
 		}
+
 	}
+
+	print_board();
 
 	return 0;
 }
